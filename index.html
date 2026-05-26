@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard Output SEO Tool for AI Codex – Copy Code Instantly</title>
+    <meta name="description" content="Fix AI code copy issues. Strip markdown fences, clean formatting, and copy code from Codex, Claude, and terminal output directly to your clipboard.">
+    <meta name="keywords" content="AI code copy tool, Codex clipboard skill, Claude Code copy helper, terminal copy fix, AI output clipboard, developer productivity">
+    <meta name="author" content="Clipboard Output Tool">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/clipboard-output-seo-tool">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Clipboard Output SEO Tool for AI Codex">
+    <meta property="og:description" content="Strip markdown fences and copy code from AI outputs in one click.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/clipboard-output-seo-tool">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clipboard Output SEO Tool for AI Codex">
+    <meta name="twitter:description" content="Copy code from AI assistants without formatting issues.">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+        header p {
+            color: #475569;
+            font-size: 1rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            resize: vertical;
+            background: #f8fafc;
+            color: #0f172a;
+            transition: border-color 0.2s;
+        }
+        textarea:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            background: #3b82f6;
+            color: white;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        .btn:active {
+            transform: scale(0.97);
+        }
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+        .btn-success {
+            background: #10b981;
+        }
+        .btn-success:hover {
+            background: #059669;
+        }
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: #475569;
+            min-height: 1.5rem;
+        }
+        .status.success {
+            color: #10b981;
+            font-weight: 600;
+        }
+        .status.error {
+            color: #ef4444;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        .feature-item {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .feature-item span {
+            font-size: 1.2rem;
+        }
+        .ad-placeholder {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border: 1px dashed #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+        .ad-placeholder a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .ad-placeholder a:hover {
+            text-decoration: underline;
+        }
+        .affiliate-section {
+            background: #fef9c3;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #fde047;
+        }
+        .affiliate-section h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #854d0e;
+        }
+        .affiliate-section ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            color: #713f12;
+            font-size: 0.9rem;
+        }
+        .affiliate-section li {
+            margin-bottom: 0.3rem;
+        }
+        .affiliate-section a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .affiliate-section a:hover {
+            text-decoration: underline;
+        }
+        .privacy-note {
+            font-size: 0.8rem;
+            color: #64748b;
+            text-align: center;
+            margin-top: 2rem;
+            padding: 0.75rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .card { padding: 1rem; }
+            .features { grid-template-columns: 1fr; }
+            .toolbar { flex-direction: column; align-items: stretch; }
+            .btn { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Clipboard Output SEO Tool</h1>
+            <p>Strip markdown fences &amp; copy AI code instantly — for Codex, Claude, and terminal output</p>
+        </header>
+
+        <!-- Main Tool Card -->
+        <div class="card">
+            <label for="inputCode" style="font-weight:600; display:block; margin-bottom:0.5rem;">Paste AI output with code blocks:</label>
+            <textarea id="inputCode" placeholder="Paste your code block here... e.g. &#10;```python&#10;print('hello')&#10;```&#10;Or any text with ``` fences."></textarea>
+            <div class="toolbar">
+                <button class="btn" id="stripAndCopyBtn">✂️ Strip &amp; Copy</button>
+                <button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+                <button class="btn btn-secondary" id="pasteBtn">📄 Paste from clipboard</button>
+            </div>
+            <div id="statusMessage" class="status" aria-live="polite">Ready. Paste AI output and click "Strip &amp; Copy".</div>
+        </div>
+
+        <!-- Quick features -->
+        <div class="features">
+            <div class="feature-item"><span>✅</span> Removes ``` fences</div>
+            <div class="feature-item"><span>✅</span> Strips language tags</div>
+            <div class="feature-item"><span>✅</span> Copies clean code</div>
+            <div class="feature-item"><span>✅</span> Works offline</div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder">
+            <strong>📢 Ad Space</strong><br>
+            <span>Your tool here — <a href="#">Boost your developer product</a></span>
+        </div>
+
+        <!-- Affiliate / Resource Section -->
+        <div class="affiliate-section">
+            <h3>🔗 Recommended Resources</h3>
+            <ul>
+                <li><a href="#" target="_blank" rel="noopener">AI Codex Pro – Supercharge your prompts</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Terminal Copy Fix – Browser extension</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Claude Code Helper – Productivity pack</a></li>
+            </ul>
+            <p style="font-size:0.8rem; margin-top:0.5rem; color:#713f12;">As an affiliate, we may earn from qualifying purchases.</p>
+        </div>
+
+        <!-- Privacy Note -->
+        <div class="privacy-note">
+            🔒 Privacy: Events may be counted anonymously for product improvement. No personal data collected.
+        </div>
+
+        <footer>
+            &copy; 2025 Clipboard Output SEO Tool — Built for developers, by developers.
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // DOM refs
+            const textarea = document.getElementById('inputCode');
+            const stripCopyBtn = document.getElementById('stripAndCopyBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const pasteBtn = document.getElementById('pasteBtn');
+            const statusEl = document.getElementById('statusMessage');
+
+            // Helper: report event if endpoint configured
+            function reportEvent(name, payload) {
+                if (typeof window.ORGANISM_METRICS_ENDPOINT === 'string' && window.ORGANISM_METRICS_ENDPOINT.length > 0) {
+                    try {
+                        const body = JSON.stringify({ event: name, payload: payload || {}, timestamp: Date.now() });
+                        fetch(window.ORGANISM_METRICS_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: body,
+                            keepalive: true
+                        }).catch(() => { /* silently fail */ });
+                    } catch (e) { /* ignore */ }
+                }
+            }
+
+            // Strip markdown fences and language tags, return clean code
+            function stripFences(text) {
+                // Remove leading/trailing whitespace
+                let cleaned = text.trim();
+                // Remove code fences: ```lang or ``` with optional language, capture content
+                // Handles multiline fences
+                cleaned = cleaned.replace(/```[\w]*\n?([\s\S]*?)```/g, (match, code) => {
+                    return code.trim();
+                });
+                // Also handle single backtick fences? Not needed for typical AI output, but be safe
+                // Remove inline code backticks only if they wrap the whole content? Better not.
+                // But we can also remove leading/trailing backticks if present
+                cleaned = cleaned.replace(/^`+|`+$/g, '');
+                return cleaned.trim();
+            }
+
+            // Copy to clipboard with fallback
+            function copyToClipboard(text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text).then(() => true).catch(() => false);
+                } else {
+                    // Fallback
+                    try {
+                        const textareaFallback = document.createElement('textarea');
+                        textareaFallback.value = text;
+                        textareaFallback.style.position = 'fixed';
+                        textareaFallback.style.left = '-9999px';
+                        document.body.appendChild(textareaFallback);
+                        textareaFallback.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textareaFallback);
+                        return Promise.resolve(true);
+                    } catch (e) {
+                        return Promise.resolve(false);
+                    }
+                }
+            }
+
+            // Main action: strip and copy
+            async function handleStripAndCopy() {
+                const raw = textarea.value;
+                if (!raw.trim()) {
+                    statusEl.textContent = '⚠️ Please paste some AI output first.';
+                    statusEl.className = 'status error';
+                    reportEvent('strip_copy_empty', {});
+                    return;
+                }
+
+                const cleaned = stripFences(raw);
+                if (!cleaned) {
+                    statusEl.textContent = '⚠️ No code content found after stripping.';
+                    statusEl.className = 'status error';
+                    reportEvent('strip_copy_no_content', {});
+                    return;
+                }
+
+                // Update textarea with cleaned version? Optional, but user might want to see.
+                textarea.value = cleaned;
+
+                const success = await copyToClipboard(cleaned);
+                if (success) {
+                    statusEl.textContent = '✅ Clean code copied to clipboard!';
+                    statusEl.className = 'status success';
+                    reportEvent('strip_copy_success', { length: cleaned.length });
+                } else {
+                    statusEl.textContent = '❌ Copy failed. Please manually select and copy.';
+                    statusEl.className = 'status error';
+                    reportEvent('strip_copy_fail', {});
+                }
+            }
+
+            // Clear textarea
+            function handleClear() {
+                textarea.value = '';
+                statusEl.textContent = 'Cleared. Ready for new input.';
+                statusEl.className = 'status';
+                reportEvent('clear', {});
+            }
+
+            // Paste from clipboard
+            async function handlePaste() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    if (text) {
+                        textarea.value = text;
+                        statusEl.textContent = '📋 Pasted from clipboard. You can now strip & copy.';
+                        statusEl.className = 'status success';
+                        reportEvent('paste_from_clipboard', { length: text.length });
+                    } else {
+                        statusEl.textContent = '⚠️ Clipboard is empty or not accessible.';
+                        statusEl.className = 'status error';
+                        reportEvent('paste_empty', {});
+                    }
+                } catch (e) {
+                    statusEl.textContent = '⚠️ Unable to read clipboard. Paste manually or allow permission.';
+                    statusEl.className = 'status error';
+                    reportEvent('paste_error', { error: e.message });
+                }
+            }
+
+            // Event listeners
+            stripCopyBtn.addEventListener('click', handleStripAndCopy);
+            clearBtn.addEventListener('click', handleClear);
+            pasteBtn.addEventListener('click', handlePaste);
+
+            // Allow Ctrl+Enter to trigger strip & copy
+            textarea.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    handleStripAndCopy();
+                }
+            });
+
+            // Expose reportEvent globally (already on window)
+            window.reportEvent = reportEvent;
+
+            // Initial report
+            reportEvent('tool_loaded', {});
+        })();
+    </script>
+</body>
+</html>
