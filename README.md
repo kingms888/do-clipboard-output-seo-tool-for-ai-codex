@@ -1,0 +1,1 @@
+# do-clipboard-output-seo-tool-for-ai-codex
